@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      gtag('config', 'G-4SFSL9KHXZ');
-    </script>
+    <link rel="stylesheet" href="default.css">
+</head>
 
-    <body>
-        <h1><a href="index.html">Art of C programming</a></h1>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        <h2>First program - Hello world!</h2>
+    gtag('config', 'G-4SFSL9KHXZ');
+</script>
 
-        <p>The first program to write is the same for all languages, print the words Hello world!.</p>
-        <p>In the C programming language, the program to print Hello world! is</p>
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <h1><a href="index.html">Art of C programming</a></h1>
+        </div>
 
-        <pre><code>
+        <div class="left" style="background-color:#aaa;">
+            <h2>First program - Hello world!</h2>
+
+            <p>The first program to write is the same for all languages, print the words Hello world!.</p>
+            <p>In the C programming language, the program to print Hello world! is</p>
+        </div>
+
+        <div class="middle" style="background-color:#bbb;">
+            <pre><code>
 #include &lt;stdio.h&gt;
                 
 int main()
@@ -31,12 +41,21 @@ int main()
     return 0;
 }
         </code></pre>
+        </div>
 
-        <p>Compile</p>
-        <p><samp>cc hello.c -o hello</samp></p>
+        <div class="right" style="background-color:#ccc;">
+            <p>Compile</p>
+            <p><samp>cc hello.c -o hello</samp></p>
 
-        <p>Run</p>
-        <p><samp>./hello</samp></p>
-        <p><samp>Hello world!</samp></p>
-    </body>
+            <p>Run</p>
+            <p><samp>./hello</samp></p>
+            <p><samp>Hello world!</samp></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Art of C programming</p>
+        </div>
+    </div>
+</body>
+
 </html>
