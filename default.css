@@ -10,9 +10,9 @@ body {
 .header {
     grid-area: header;
     background-color: #f1f1f1;
-    padding: 30px;
+    padding: 25px;
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 /* The grid container */
@@ -29,13 +29,14 @@ body {
 .middle,
 .right {
     padding: 10px;
-    height: 300px;
+    height: 400px;
     /* Should be removed. Only for demonstration */
 }
 
 /* Style the left column */
 .left {
     grid-area: left;
+    max-width: 400px;
 }
 
 /* Style the middle column */
@@ -46,14 +47,29 @@ body {
 /* Style the right column */
 .right {
     grid-area: right;
+    max-width: 200px
 }
 
 /* Style the footer */
 .footer {
     grid-area: footer;
     background-color: #f1f1f1;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
+}
+
+/* Style terminal */
+.terminal {
+    background-color:#000; 
+    color: green; 
+    padding: 2px 6px 2px 6px;
+}
+
+/* Style source code */
+.source {
+    background-color:#000; 
+    color: green;
+    padding: 2px 6px 2px 6px;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
