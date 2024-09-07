@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn C programming. Find code to develop efficient applications in C.">
+    <meta name="keywords" content="C programming, C code examples, learn C, C programming language, C development, C compiler, C course, C functions, C structure, C variables, C variable ranges">
+
+    <link rel="stylesheet" href="default.css">
+
+    <title>Variable ranges | Art of C programming</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-4SFSL9KHXZ');
+</script>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <h1>Art of C programming</h1>
+        </div>
+
+        <div class="left">
+            <h2>Variable ranges</h2>
+
+            <p>Ranges of char, short, int and long variables, both signed and unsigned</p>
+            <p>From standard headers and by direct computation.</p>
+        </div>
+
+        <div class="middle">
+            <div class="source">
+                <pre>
+                    <code>
+#include &lt;stdio.h&gt;             
+#include &lt;limits.h&gt;
+
+int main()
+{
+    printf("char with limits.h\n");
+    printf("  char: %d to %d\n", CHAR_MIN, CHAR_MAX);
+    printf("  unsigned char: 0 to %d\n\n", UCHAR_MAX);
+    printf("char with direct calculation\n");
+    printf("  char: %d to %d\n", -(1 << (8-1)), (1 << (8-1)) - 1);
+    printf("  unsigned char: 0 to %d\n\n", (1 << 8) - 1);
+
+    printf("short with limits.h\n");
+    printf("  short: %d to %d\n", SHRT_MIN, SHRT_MAX);
+    printf("  unsigned short: 0 to %d\n\n", USHRT_MAX);
+    printf("short with direct calculation\n");
+    printf("  short: %d to %d\n", -(1 << (16-1)), (1 << (16-1)) - 1);
+    printf("  unsigned short: 0 to %d\n\n", (1 << 16) - 1);
+
+    printf("int with limits.h\n");
+    printf("  int: %d to %d\n", INT_MIN, INT_MAX);
+    printf("  unsigned int: 0 to %u\n\n", UINT_MAX);
+    printf("int with direct calculation\n");
+    printf("  int: %ld to %ld\n", -(1L << (32-1)), (1L << (32-1)) - 1);
+    printf("  unsigned int: 0 to %ld\n\n", (1L << 32) - 1);
+
+    printf("long with limits.h\n");
+    printf("  long: %ld to %ld\n", LONG_MIN, LONG_MAX);
+    printf("  unsigned long: 0 to %lu\n\n", ULONG_MAX);
+    printf("long with direct calculation\n");
+    printf("  long: %ld to %ld\n", -(1UL << (64-1)), (1UL << (64-1)) - 1);
+    printf("  unsigned long: 0 to %llu\n\n", ~0ULL);
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>Compile</h3>
+            <div class="terminal">
+                <p><samp>cc ranges.c -o ranges</samp></p>
+            </div>
+
+            <h3>Run</h3>
+            <div class="terminal">
+                <p><samp>./ranges</samp></p>
+                <p><samp>
+char with limits.h<br/>
+&nbsp;&nbsp;char: -128 to 127<br/>
+&nbsp;&nbsp;unsigned char: 0 to 255<br/><br/>
+
+char with direct calculation<br/>
+&nbsp;&nbsp;char: -128 to 127<br/>
+&nbsp;&nbsp;unsigned char: 0 to 255<br/><br/>
+
+short with limits.h<br/>
+&nbsp;&nbsp;short: -32768 to 32767<br/>
+&nbsp;&nbsp;unsigned short: 0 to 65535<br/><br/>
+
+short with direct calculation<br/>
+&nbsp;&nbsp;short: -32768 to 32767<br/>
+&nbsp;&nbsp;unsigned short: 0 to 65535<br/><br/>
+
+int with limits.h<br/>
+&nbsp;&nbsp;int: -2147483648 to 2147483647<br/>
+&nbsp;&nbsp;unsigned int: 0 to 4294967295<br/><br/>
+
+int with direct calculation<br/>
+&nbsp;&nbsp;int: -2147483648 to 2147483647<br/>
+&nbsp;&nbsp;unsigned int: 0 to 4294967295<br/><br/>
+
+long with limits.h<br/>
+&nbsp;&nbsp;long: -9223372036854775808 to 9223372036854775807<br/>
+&nbsp;&nbsp;unsigned long: 0 to 18446744073709551615<br/><br/>
+
+long with direct calculation<br/>
+&nbsp;&nbsp;long: -9223372036854775808 to 9223372036854775807<br/>
+&nbsp;&nbsp;unsigned long: 0 to 18446744073709551615<br/><br/>
+                </samp></p>
+            </div>
+
+            <p><a href="https://github.com/artofcprogramming/variable-ranges.git" target="_blank">Source code</a></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Art of C programming</p>
+        </div>
+    </div>
+</body>
+
+</html>

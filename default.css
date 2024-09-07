@@ -29,14 +29,13 @@ body {
 .middle,
 .right {
     padding: 10px;
-    height: 400px;
     /* Should be removed. Only for demonstration */
 }
 
 /* Style the left column */
 .left {
     grid-area: left;
-    max-width: 400px;
+    max-width: 300px;
 }
 
 /* Style the middle column */
@@ -47,7 +46,7 @@ body {
 /* Style the right column */
 .right {
     grid-area: right;
-    max-width: 200px
+    max-width: 400px
 }
 
 /* Style the footer */
