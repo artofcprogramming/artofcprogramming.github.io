@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn C programming. Find code to develop efficient applications in C.">
+    <meta name="keywords"
+        content="C programming, C code examples, learn C, C programming language, C development, C compiler, C course, C functions, C structure, C variables, C constants, C enumerations, C escape secuences">
+
+    <link rel="stylesheet" href="default.css">
+
+    <title>Constants | Art of C programming</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <h1>Art of C programming</h1>
+        </div>
+
+        <div class="left">
+            <h2>Constants</h2>
+
+            <p>Constants, escape secuences and enumerations in C programming language.</p>
+            <p>Integer, long, floating point, character and string constants</p> 
+        </div>
+
+        <div class="middle">
+            <div class="source">
+                <pre>
+                    <code>
+#include &lt;stdio.h&gt;             
+#include &lt;limits.h&gt;
+
+#define TEN          10
+#define BILLION      1000000000L
+#define BILLION_U    1000000000UL
+#define PI           3.1416
+#define BILLION_E    1.0e+9
+#define THIRTY_ONE_O 037
+#define THIRTY_ONE_H 0x1F
+#define ZERO         '0'
+#define VTAB         '\013'
+#define BELL         '\x7'
+#define HELLO        "Hello"
+#define WORLD        "world"
+
+enum boolean {NO, YES};
+enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
+
+int main()
+{
+    printf("Constants\n");
+    printf("  integer constant: %d\n", TEN);
+    printf("  long constant: %ld\n", BILLION);
+    printf("  unsigned long constant: %lu\n", BILLION_U);
+    printf("  floating point constant (decimal point): %.4f\n", PI);
+    printf("  floating point constant (exponent): %.0e -> %0.f\n", BILLION_E, BILLION_E);
+    printf("  decimal 31 in octal: %o -> %d\n", THIRTY_ONE_O, THIRTY_ONE_O);
+    printf("  decimal 31 in hexadecimal: %x -> %d\n", THIRTY_ONE_H, THIRTY_ONE_H);
+    printf("  character constant (zero): %c\n", ZERO);
+    printf("  ASCII vertical tab (octal): %o\n", VTAB);
+    printf("  ASCII bell character (hexadecimal): %x\n\n", BELL);
+
+    printf("Escape secuences\n");
+    printf("  \\a alert (bell) character\n");
+    printf("  \\b backspace\n");
+    printf("  \\f formfeed\n");
+    printf("  \\n newline\n");
+    printf("  \\r carriage return\n");
+    printf("  \\t horizontal tab\n");
+    printf("  \\v vertical tab\n");
+    printf("  \\\\ slash\n");
+    printf("  \\? question mark\n");
+    printf("  \\' single quote\n");
+    printf("  \\\" double quote\n\n");
+
+    printf("String constants\n");
+    printf("  string constant: %s\n", HELLO);
+    printf("  string constants (concatenated): %s%s%s\n\n", HELLO, ", ", WORLD);
+
+    printf("Enumeration constants\n");
+    printf("  boolean: %d %d\n", NO, YES);
+    printf("  months: %d %d %d %d %d %d %d %d %d %d %d %d\n", JAN, FEB, MAR, APR, MAY, JUN, 
+        JUL, AUG, SEP, OCT, NOV, DEC);
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>Compile</h3>
+            <div class="terminal">
+                <p><samp>cc constants.c -o constants</samp></p>
+            </div>
+
+            <h3>Run</h3>
+            <div class="terminal">
+                <p><samp>./constants</samp></p>
+                <p><samp>
+                        Constants<br />
+                        &nbsp;&nbsp;integer constant: 10<br />
+                        &nbsp;&nbsp;long constant: 1000000000<br />
+                        &nbsp;&nbsp;unsigned long constant: 1000000000<br />
+                        &nbsp;&nbsp;floating point constant (decimal point): 3.1416<br />
+                        &nbsp;&nbsp;floating point constant (exponent): 1e+09 -> 1000000000<br />
+                        &nbsp;&nbsp;decimal 31 in octal: 37 -> 31<br />
+                        &nbsp;&nbsp;decimal 31 in hexadecimal: 1f -> 31<br />
+                        &nbsp;&nbsp;character constant (zero): 0<br />
+                        &nbsp;&nbsp;ASCII vertical tab (octal): 13<br />
+                        &nbsp;&nbsp;ASCII bell character (hexadecimal): 7<br /><br />
+
+                        Escape secuences<br />
+                        &nbsp;&nbsp;\a alert (bell) character<br />
+                        &nbsp;&nbsp;\b backspace<br />
+                        &nbsp;&nbsp;\f formfeed<br />
+                        &nbsp;&nbsp;\n newline<br />
+                        &nbsp;&nbsp;\r carriage return<br />
+                        &nbsp;&nbsp;\t horizontal tab<br />
+                        &nbsp;&nbsp;\v vertical tab<br />
+                        &nbsp;&nbsp;\\ slash<br />
+                        &nbsp;&nbsp;\? question mark<br />
+                        &nbsp;&nbsp;\' single quote<br />
+                        &nbsp;&nbsp;\" double quote<br /><br />
+
+                        String constants<br />
+                        &nbsp;&nbsp;string constant: Hello<br />
+                        &nbsp;&nbsp;string constants (concatenated): Hello, world<br /><br />
+
+                        Enumeration constants<br />
+                        &nbsp;&nbsp;boolean: 0 1<br />
+                        &nbsp;&nbsp;months: 1 2 3 4 5 6 7 8 9 10 11 12<br />
+                    </samp></p>
+            </div>
+
+            <p><a href="https://github.com/artofcprogramming/constants.git" target="_blank">Source code</a></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Art of C programming</p>
+        </div>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4SFSL9KHXZ');
+    </script>
+</body>
+
+</html>
