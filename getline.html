@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn C programming. Find code to develop efficient applications in C.">
+    <meta name="keywords"
+        content="C programming, C code examples, learn C, C programming language, C development, C compiler, C course, C functions, C structure, C variables, C text line, C text length, C text size">
+
+    <link rel="stylesheet" href="default.css">
+
+    <title>Getline | Art of C programming</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <h1>Art of C programming</h1>
+        </div>
+
+        <div class="left">
+            <h2>Getline</h2>
+
+            <p>How to create a straightforward C program to capture a text line and determine its size.</p>
+            <p>Perfect for C beginners or those looking to enhance their programming skills.</p>
+        </div>
+
+        <div class="middle">
+            <div class="source">
+                <pre>
+                    <code>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int lim = 100;
+    char s[100];
+    int c, i;
+
+    printf("Enter a string: ");
+    for (i = 0; i < lim-1 && (c = getchar()) != '\n' && c != EOF; ++i)
+        s[i] = c;
+    s[i] = '\0';
+
+    printf("String: %s\n", s);
+    printf("Length: %d\n", i);
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>Compile</h3>
+            <div class="terminal">
+                <p><samp>cc getline.c -o getline</samp></p>
+            </div>
+
+            <h3>Run</h3>
+            <div class="terminal">
+                <p><samp>./getline</samp></p>
+                <p><samp>
+                        Enter a string: Hello World!<br />
+                        String: Hello World!<br />
+                        Length: 12<br />
+                    </samp></p>
+            </div>
+
+            <p><a href="https://github.com/artofcprogramming/getline" target="_blank">Source code</a></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Art of C programming</p>
+        </div>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4SFSL9KHXZ');
+    </script>
+</body>
+
+</html>
