@@ -44,7 +44,8 @@
         
         <div class="code-example" id="hello-world">
             <h3>Hello World Example</h3>
-            <pre><code>#include <stdio.h>
+            <p>This example prints "Hello, World!" to the console. It's a basic program that demonstrates the standard way to output text in C.</p>
+            <pre><code>#include &lt;stdio.h&gt;
 
 int main() {
     printf("Hello, World!\n");
@@ -54,8 +55,9 @@ int main() {
 
         <div class="code-example" id="ranges">
             <h3>Ranges of char, short, int, and long</h3>
-            <pre><code>#include <stdio.h>
-#include <limits.h>
+            <p>This function prints the minimum and maximum values for the built-in types: char, short, int, and long, using constants from the &lt;limits.h&gt; library.</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
 
 void print_ranges() {
     printf("char: %d to %d\n", CHAR_MIN, CHAR_MAX);
@@ -72,12 +74,13 @@ int main() {
 
         <div class="code-example" id="getline">
             <h3>Function getline using && and ||</h3>
-            <pre><code>#include <stdio.h>
-#include <string.h>
+            <p>This example demonstrates how to use the &lt;stdio.h&gt; library and the <strong>&amp;&amp;</strong> and <strong>&#124;&#124;</strong> operators to check if input was received and its length.</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
 int main() {
     char str[100];
-    if (fgets(str, sizeof(str), stdin) && strlen(str) > 0) {
+    if (fgets(str, sizeof(str), stdin) &amp;&amp; strlen(str) &gt; 0) {
         printf("Input received: %s", str);
     } else {
         printf("No input received.\n");
@@ -88,17 +91,18 @@ int main() {
 
         <div class="code-example" id="htoi">
             <h3>Function htoi (hexadecimal to integer)</h3>
-            <pre><code>#include <stdio.h>
-#include <ctype.h>
+            <p>This function converts a hexadecimal string (starting with 0x or 0X) to its integer equivalent.</p>
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
 
 int htoi(char s[]) {
     int n = 0;
     for (int i = 0; s[i] != '\0'; i++) {
         char c = tolower(s[i]);
         n *= 16;
-        if (c >= '0' && c <= '9') {
+        if (c &gt;= '0' &amp;&amp; c &lt;= '9') {
             n += c - '0';
-        } else if (c >= 'a' && c <= 'f') {
+        } else if (c &gt;= 'a' &amp;&amp; c &lt;= 'f') {
             n += c - 'a' + 10;
         }
     }
@@ -113,12 +117,13 @@ int main() {
 
         <div class="code-example" id="squeeze">
             <h3>Function squeeze(s1, s2)</h3>
-            <pre><code>#include <stdio.h>
+            <p>This function removes characters from s1 that appear in s2, modifying the string s1 in place.</p>
+            <pre><code>#include &lt;stdio.h&gt;
 
 void squeeze(char s1[], char s2[]) {
     int i, j, k;
     for (i = j = 0; s1[i] != '\0'; i++) {
-        for (k = 0; s2[k] != '\0' && s1[i] != s2[k]; k++);
+        for (k = 0; s2[k] != '\0' &amp;&amp; s1[i] != s2[k]; k++);
         if (s2[k] == '\0') {
             s1[j++] = s1[i];
         }
@@ -137,7 +142,8 @@ int main() {
 
         <div class="code-example" id="any">
             <h3>Function any(s1, s2)</h3>
-            <pre><code>#include <stdio.h>
+            <p>This function returns the position of the first occurrence of any character from s2 in s1, or -1 if no match is found.</p>
+            <pre><code>#include &lt;stdio.h&gt;
 
 int any(char s1[], char s2[]) {
     for (int i = 0; s1[i] != '\0'; i++) {
