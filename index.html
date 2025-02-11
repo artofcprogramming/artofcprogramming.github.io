@@ -1,49 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn C programming. Find code to develop efficient applications in C.">
-    <meta name="keywords"
-        content="C programming, C code examples, learn C, C programming language, C development, C compiler, C course, C functions, C structure, C variables">
-
-    <link rel="stylesheet" href="default.css">
-
-    <title>Home | Art of C programming</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn C programming with efficient and elegant code examples. Explore functions, algorithms, and techniques to improve your C programming skills.">
+    <meta name="keywords" content="C programming, C language, code examples, programming tutorials, C functions, C programming for beginners, C algorithms, efficient code">
+    
+    <title>Art of C Programming</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="grid-container">
-        <div class="header">
-            <h1>Art of C programming</h1>
+
+<header>
+    <h1>Art of C Programming</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#examples">Examples</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="examples">
+    <div class="container">
+        <h2>Code Examples</h2>
+        
+        <!-- Enlaces a los ejemplos de código -->
+        <ul>
+            <li><a href="#hello-world">Hello World Example</a></li>
+            <li><a href="#ranges">Ranges of char, short, int, and long</a></li>
+            <li><a href="#getline">Function getline using && and ||</a></li>
+            <li><a href="#htoi">Function htoi (hexadecimal to integer)</a></li>
+            <li><a href="#squeeze">Function squeeze(s1, s2)</a></li>
+            <li><a href="#any">Function any(s1, s2)</a></li>
+        </ul>
+
+        <!-- Ejemplos de código aquí... -->
+        
+        <div class="code-example" id="hello-world">
+            <h3>Hello World Example</h3>
+            <pre><code>#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
         </div>
 
-        <div class="left">
-            <ul>
-                <li><a href="getline.html">Getline</a></li>
-                <li><a href="leap_year.html">Leap year</a></li>
-                <li><a href="constants.html">Constants</a></li>
-                <li><a href="variable_ranges.html">Variable ranges</a></li>
-                <li><a href="hello_world.html">First program</a></li>
-            </ul>
+        <div class="code-example" id="ranges">
+            <h3>Ranges of char, short, int, and long</h3>
+            <pre><code>#include <stdio.h>
+#include <limits.h>
+
+void print_ranges() {
+    printf("char: %d to %d\n", CHAR_MIN, CHAR_MAX);
+    printf("short: %d to %d\n", SHRT_MIN, SHRT_MAX);
+    printf("int: %d to %d\n", INT_MIN, INT_MAX);
+    printf("long: %ld to %ld\n", LONG_MIN, LONG_MAX);
+}
+
+int main() {
+    print_ranges();
+    return 0;
+}</code></pre>
         </div>
 
-        <div class="footer">
-            <p>&copy; Art of C programming</p>
+        <div class="code-example" id="getline">
+            <h3>Function getline using && and ||</h3>
+            <pre><code>#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    if (fgets(str, sizeof(str), stdin) && strlen(str) > 0) {
+        printf("Input received: %s", str);
+    } else {
+        printf("No input received.\n");
+    }
+    return 0;
+}</code></pre>
+        </div>
+
+        <div class="code-example" id="htoi">
+            <h3>Function htoi (hexadecimal to integer)</h3>
+            <pre><code>#include <stdio.h>
+#include <ctype.h>
+
+int htoi(char s[]) {
+    int n = 0;
+    for (int i = 0; s[i] != '\0'; i++) {
+        char c = tolower(s[i]);
+        n *= 16;
+        if (c >= '0' && c <= '9') {
+            n += c - '0';
+        } else if (c >= 'a' && c <= 'f') {
+            n += c - 'a' + 10;
+        }
+    }
+    return n;
+}
+
+int main() {
+    printf("%d\n", htoi("0x1A3"));
+    return 0;
+}</code></pre>
+        </div>
+
+        <div class="code-example" id="squeeze">
+            <h3>Function squeeze(s1, s2)</h3>
+            <pre><code>#include <stdio.h>
+
+void squeeze(char s1[], char s2[]) {
+    int i, j, k;
+    for (i = j = 0; s1[i] != '\0'; i++) {
+        for (k = 0; s2[k] != '\0' && s1[i] != s2[k]; k++);
+        if (s2[k] == '\0') {
+            s1[j++] = s1[i];
+        }
+    }
+    s1[j] = '\0';
+}
+
+int main() {
+    char str1[] = "hello";
+    char str2[] = "aeiou";
+    squeeze(str1, str2);
+    printf("%s\n", str1);
+    return 0;
+}</code></pre>
+        </div>
+
+        <div class="code-example" id="any">
+            <h3>Function any(s1, s2)</h3>
+            <pre><code>#include <stdio.h>
+
+int any(char s1[], char s2[]) {
+    for (int i = 0; s1[i] != '\0'; i++) {
+        for (int j = 0; s2[j] != '\0'; j++) {
+            if (s1[i] == s2[j]) {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
+int main() {
+    char str1[] = "hello";
+    char str2[] = "aeiou";
+    printf("First match at position: %d\n", any(str1, str2));
+    return 0;
+}</code></pre>
         </div>
     </div>
+</section>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SFSL9KHXZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<footer>
+    <p>&copy; 2025 Art of C Programming | All Rights Reserved</p>
+</footer>
 
-        gtag('config', 'G-4SFSL9KHXZ');
-    </script>
 </body>
-
-
 </html>
